@@ -28,13 +28,13 @@ const App = () => {
       yearsOfExperience: 20,
     },
     {
-      id: 5,
+      id: 4,
       name: "Dr. José Pérez",
       specialty: "Cardiología",
       yearsOfExperience: 15,
     },
     {
-      id: 6,
+      id: 5,
       name: "Dra. María Gómez",
       specialty: "Pediatría",
       yearsOfExperience: 10,

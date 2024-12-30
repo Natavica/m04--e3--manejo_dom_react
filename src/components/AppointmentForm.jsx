@@ -1,11 +1,7 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types'; // Importa PropTypes
 
-const AppointmentForm = ({
-  doctors,
-  appointmentDetails,
-  handleAppointmentChange,
-  handleSubmit,
-}) => {
+const AppointmentForm = ({ doctors, appointmentDetails, handleAppointmentChange, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Agendar Cita</h2>
@@ -53,6 +49,23 @@ const AppointmentForm = ({
       <button type="submit">Agendar cita</button>
     </form>
   );
+};
+
+// Definimos los PropTypes para las propiedades que recibe el componente
+AppointmentForm.propTypes = {
+  doctors: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    specialty: PropTypes.string.isRequired,
+    yearsOfExperience: PropTypes.number.isRequired,
+  })).isRequired, // Asegura que `doctors` sea un array de objetos con la estructura adecuada
+  appointmentDetails: PropTypes.shape({
+    patientName: PropTypes.string.isRequired,
+    selectedDoctor: PropTypes.string.isRequired,
+    appointmentDate: PropTypes.string.isRequired,
+  }).isRequired, // Asegura que `appointmentDetails` sea un objeto con las propiedades correctas
+  handleAppointmentChange: PropTypes.func.isRequired, // Asegura que `handleAppointmentChange` sea una función
+  handleSubmit: PropTypes.func.isRequired, // Asegura que `handleSubmit` sea una función
 };
 
 export default AppointmentForm;

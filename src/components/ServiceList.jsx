@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // Importa PropTypes
 
 const ServiceList = ({ services, handleServiceChange }) => {
   return (
@@ -14,6 +15,12 @@ const ServiceList = ({ services, handleServiceChange }) => {
       </select>
     </div>
   );
+};
+
+//Definimos los PropTypes para las propiedades que recibe el componente
+ServiceList.propTypes = {
+  services: PropTypes.arrayOf(PropTypes.string).isRequired, // El componente espera un array de strings
+  handleServiceChange: PropTypes.func.isRequired, // El componente espera una función
 };
 
 export default ServiceList;
